@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
-    private void Start()
+    void Start()
     {
         Debug.Log("Connecting to Master");
         PhotonNetwork.ConnectUsingSettings();
@@ -15,10 +15,11 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected to Master");
         PhotonNetwork.JoinLobby();
-    }
+    } 
 
     public override void OnJoinedLobby()
     {
+        MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
     }
 }
