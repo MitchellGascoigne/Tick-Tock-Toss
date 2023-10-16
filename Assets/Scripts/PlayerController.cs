@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject cameraHolder;
 
-    [SerializeField] float mouseXSensitivity, mouseYSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
+    [SerializeField] float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
 
     float verticalLookRotation;
     bool grounded;
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     PhotonView PV;
 
-    PlayerManager playerManager;
+    // PlayerManager playerManager;
 
     void Awake()
     {
@@ -49,9 +49,9 @@ public class PlayerController : MonoBehaviour
 
     void Look()
     {
-        transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X") * mouseXSensitivity);
+        transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X") * mouseSensitivity);
 
-        verticalLookRotation += Input.GetAxisRaw("Mouse Y") * mouseYSensitivity;
+        verticalLookRotation += Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f);
 
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation;
