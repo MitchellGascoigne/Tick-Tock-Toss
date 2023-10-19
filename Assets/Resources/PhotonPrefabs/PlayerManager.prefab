@@ -67,5 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2bd6fd0a4b62543ad34f8c9378561b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
-  timerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 7028507614693015234, guid: 71d9c4c756504ce4fb07151597b4afe7,
+    type: 3}
+  timerPrefab: {fileID: 5850277780875142460, guid: 53305dda9a417004d9d46b203232c475,
+    type: 3}
