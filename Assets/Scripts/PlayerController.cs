@@ -2,6 +2,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -83,5 +84,11 @@ public class PlayerController : MonoBehaviour
             return;
 
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+    }
+    [PunRPC]
+    void UpdateTimerText(string timerText, GameObject TimerPrefab)
+    {
+        // Update the timer text on the timer prefab
+        TimerPrefab.GetComponent<TextMeshPro>().text = timerText;
     }
 }
