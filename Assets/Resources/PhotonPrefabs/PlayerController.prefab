@@ -277,6 +277,7 @@ MonoBehaviour:
   walkSpeed: 3
   jumpForce: 300
   smoothTime: 0.15
+  timerPrefab: {fileID: 0}
 --- !u!54 &3993780790628989856
 Rigidbody:
   m_ObjectHideFlags: 0

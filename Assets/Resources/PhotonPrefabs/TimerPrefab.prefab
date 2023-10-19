@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 9070767460671677997}
   - component: {fileID: 4968284494466900709}
   - component: {fileID: 4639521430932869766}
-  - component: {fileID: 5877909157013522209}
   - component: {fileID: 782046463895700514}
   - component: {fileID: 5455083673490176106}
-  - component: {fileID: 74252114819210909}
+  - component: {fileID: 8093762104477669859}
   m_Layer: 5
   m_Name: TimerDisplay
   m_TagString: Untagged
@@ -138,19 +137,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5877909157013522209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4248708096654054619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8dd51b1c7434d94b8c77763399648a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tex: {fileID: 4639521430932869766}
 --- !u!114 &782046463895700514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +204,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &74252114819210909
+--- !u!114 &8093762104477669859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,9 +213,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4248708096654054619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db3beaeb5ab8b114ea7444ed748343da, type: 3}
+  m_Script: {fileID: 11500000, guid: c8dd51b1c7434d94b8c77763399648a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countNumbers: {fileID: 4639521430932869766}
 --- !u!1 &5850277780875142460
 GameObject:
   m_ObjectHideFlags: 0

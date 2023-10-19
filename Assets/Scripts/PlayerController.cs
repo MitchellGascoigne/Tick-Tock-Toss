@@ -6,11 +6,15 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPun
 {
     [SerializeField] GameObject cameraHolder;
 
     [SerializeField] float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
+
+    public GameObject timerPrefab;
+
+    private GameObject activeTimer;
 
     float verticalLookRotation;
     bool grounded;
@@ -85,10 +89,39 @@ public class PlayerController : MonoBehaviour
 
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!PV.IsMine)
+            return;
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerController otherPlayer = collision.gameObject.GetComponent<PlayerController>();
+
+            if (otherPlayer.activeTimer == null)
+            {
+                otherPlayer.activeTimer = this.activeTimer;
+                this.activeTimer = null;
+
+                // Transfer the timer prefab's ownership
+                otherPlayer.activeTimer.GetPhotonView().TransferOwnership(otherPlayer.photonView.Owner);
+
+                // Update the timer text on the other player's client
+                string timerText = "Your Timer Text"; // Replace with the desired timer text.
+                otherPlayer.photonView.RPC("UpdateTimerText", RpcTarget.All, timerText, otherPlayer.activeTimer);
+            }
+        }
+    }
+
     [PunRPC]
-    void UpdateTimerText(string timerText, GameObject TimerPrefab)
+    private void UpdateTimerText(string timerText, GameObject timerPrefab)
     {
         // Update the timer text on the timer prefab
-        TimerPrefab.GetComponent<TextMeshPro>().text = timerText;
+        if (timerPrefab != null)
+        {
+            timerPrefab.GetComponentInChildren<TextMeshProUGUI>().text = timerText;
+        }
     }
+
 }
