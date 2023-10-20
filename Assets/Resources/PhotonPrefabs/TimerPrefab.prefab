@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 782046463895700514}
   - component: {fileID: 5455083673490176106}
   - component: {fileID: 8093762104477669859}
+  - component: {fileID: 5786055061588313118}
   m_Layer: 5
   m_Name: TimerDisplay
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52, y: 0}
+  m_AnchoredPosition: {x: 91, y: -50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4968284494466900709
@@ -70,8 +71,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e5b1a6a953f549f4b9ec0668422b8af6, type: 2}
+  m_sharedMaterial: {fileID: 6879848517169556122, guid: e5b1a6a953f549f4b9ec0668422b8af6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -95,8 +97,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -155,7 +157,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 5786055061588313118}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -217,6 +220,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countNumbers: {fileID: 4639521430932869766}
+  player: {fileID: 116016375982311671, guid: 702f22768546ef040905366ff84a36ed, type: 3}
+--- !u!114 &5786055061588313118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4248708096654054619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &5850277780875142460
 GameObject:
   m_ObjectHideFlags: 0
