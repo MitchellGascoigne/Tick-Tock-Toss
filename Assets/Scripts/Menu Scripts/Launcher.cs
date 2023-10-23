@@ -21,6 +21,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] Transform playerListContent;
     [SerializeField] GameObject PlayerListItemPrefab;
     [SerializeField] GameObject startGameButton;
+    [SerializeField] GameObject QuitButton;
 
     private void Awake()
     {
@@ -92,6 +93,12 @@ public class Launcher : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         PhotonNetwork.LoadLevel(1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quitting Game");
     }
 
     public void LeaveRoom()

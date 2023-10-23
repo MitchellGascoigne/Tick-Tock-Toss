@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 6966532270671717080}
   - component: {fileID: 9056768805579697679}
   - component: {fileID: -7379284187591863653}
-  - component: {fileID: 7377602531708231104}
   - component: {fileID: 5588011791608808176}
   - component: {fileID: 3566516507193235957}
   - component: {fileID: 787339260553682550}
+  - component: {fileID: 58283651024331138}
+  - component: {fileID: 7377602531708231104}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -87,27 +88,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &7377602531708231104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116016375982311671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40855f3c9d744e64183e7ccad2ca6634, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 5827615824576544776}
-  mouseSensitivity: 3
-  sprintSpeed: 6
-  walkSpeed: 3
-  jumpForce: 300
-  smoothTime: 0.15
-  timerPrefab: {fileID: 5850277780875142460, guid: 53305dda9a417004d9d46b203232c475,
-    type: 3}
-  playerAnimator: {fileID: 9056768805579697679}
 --- !u!114 &5588011791608808176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +152,41 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.54, y: 0.68, z: 1}
   m_Center: {x: 0.003, y: 0.34, z: 0}
+--- !u!114 &58283651024331138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116016375982311671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f47f6b0774e5c428ddab61eed5ad8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerPrefab: {fileID: 5850277780875142460, guid: 53305dda9a417004d9d46b203232c475,
+    type: 3}
+--- !u!114 &7377602531708231104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116016375982311671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40855f3c9d744e64183e7ccad2ca6634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraHolder: {fileID: 5827615824576544776}
+  mouseSensitivity: 3
+  sprintSpeed: 6
+  walkSpeed: 3
+  jumpForce: 300
+  smoothTime: 0.15
+  timerPrefab: {fileID: 5850277780875142460, guid: 53305dda9a417004d9d46b203232c475,
+    type: 3}
+  playerAnimator: {fileID: 9056768805579697679}
 --- !u!1 &153458155423171003
 GameObject:
   m_ObjectHideFlags: 0

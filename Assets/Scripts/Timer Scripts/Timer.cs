@@ -9,12 +9,6 @@ public class Timer : MonoBehaviour
     public TMP_Text countNumbers; // Reference to a TextMeshPro text component for displaying the countdown.
     public GameObject player; // Reference to the GameObject to disable when the countdown reaches zero.
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // The Start method is empty, so nothing specific happens at the start of the script execution.
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -24,22 +18,12 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            DisablePlayer();
+            // DESTROY TIMER
+            // DESTROY PLAYER
         }
 
         double b = System.Math.Round(countdown, 2); // Round the countdown value to two decimal places and store it in a double variable 'b'.
         countNumbers.text = b.ToString(); // Update the TextMeshPro text component with the rounded countdown value as a string.
     }
 
-    void DisablePlayer()
-    {
-        if (player != null)
-        {
-            player.SetActive(false); // Disable the player GameObject.
-        }
-        else
-        {
-            Debug.LogWarning("Player GameObject is not assigned. Make sure to assign the GameObject you want to disable.");
-        }
-    }
 }

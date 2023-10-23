@@ -7,10 +7,9 @@ using TMPro;
 
 public class TimerManager : MonoBehaviourPunCallbacks
 {
-    public GameObject timerPrefab; // Reference to the timer prefab that will be instantiated.
-
-    private GameObject timerInstance; // The instance of the timer prefab.
-    private bool timerAssigned = false; // A flag to track whether a timer has been assigned.
+    public GameObject timerPrefab;
+    private GameObject timerInstance;
+    private bool timerAssigned = false;
 
     void Start()
     {
@@ -43,8 +42,8 @@ public class TimerManager : MonoBehaviourPunCallbacks
 
                 Vector3 timerPosition = randomPlayer.transform.position + Vector3.up * 2;
                 timerInstance = Instantiate(timerPrefab, timerPosition, Quaternion.identity);
+                timerInstance.transform.SetParent(randomPlayer.transform);
 
-                timerInstance.transform.SetParent(randomPlayer.transform); // Set timer as a child of the player.
                 timerAssigned = true;
             }
         }
