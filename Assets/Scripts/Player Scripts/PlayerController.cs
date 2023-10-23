@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviourPun
 
     public GameObject timerPrefab;
 
-    private GameObject activeTimer;
     public Animator playerAnimator;
 
     float verticalLookRotation;
@@ -103,5 +102,40 @@ public class PlayerController : MonoBehaviourPun
             timerPrefab.GetComponentInChildren<TextMeshProUGUI>().text = timerText;
         }
     }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (photonView.IsMine && other.gameObject.CompareTag("Player"))
+        {
+            PlayerController otherPlayerController = other.gameObject.GetComponent<PlayerController>();
 
+            if (otherPlayerController != null && otherPlayerController.timerPrefab == null)
+            {
+                // Transfer the timer to the collided player.
+                otherPlayerController.GainTimer();
+                LoseTimer();
+            }
+        }
+    }
+
+    public void GainTimer()
+    {
+        // Instantiate and attach the timer prefab.
+        timerPrefab = PhotonNetwork.Instantiate("Timer", transform.position + Vector3.up * 2, Quaternion.identity);
+        timerPrefab.transform.SetParent(transform); // Attach the timer as a child
+    }
+
+
+    private void LoseTimer()
+    {
+        if (timerPrefab != null)
+        {
+            PhotonNetwork.Destroy(timerPrefab);
+            timerPrefab = null; // Remove the timer reference.
+        }
+    }
+
+    public void DestroyPlayer()
+    {
+        PhotonNetwork.Destroy(gameObject);
+    }
 }
