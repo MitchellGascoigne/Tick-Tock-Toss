@@ -5,6 +5,12 @@ public class PlayerController : MonoBehaviourPun
 {
     [SerializeField] GameObject cameraHolder;  // Reference to the camera holder GameObject.
     [SerializeField] float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;  // Player movement and camera control parameters.
+    [SerializeField] Item[] items;
+
+    int itemIndex;
+    int previousItemIndex = -1;
+    
+    
     public Animator playerAnimator;  // Animator for player animations.
     float verticalLookRotation;  // Vertical camera rotation value.
     bool grounded;  // Indicates if the player is grounded.
@@ -21,7 +27,11 @@ public class PlayerController : MonoBehaviourPun
 
     void Start()
     {
-        if (!PV.IsMine)
+        if (PV.IsMine)
+        {
+            EquipItem(0); // Assign ra
+        }
+        else
         {
             // If this GameObject doesn't belong to the local player, destroy the camera and Rigidbody.
             Destroy(GetComponentInChildren<Camera>().gameObject);
@@ -72,6 +82,19 @@ public class PlayerController : MonoBehaviourPun
         {
             rb.AddForce(transform.up * jumpForce);  // Apply an upward force for jumping.
         }
+    }
+
+    void EquipItem(int _index)
+    {
+        itemIndex = _index;
+        items[itemIndex].itemGameObject.SetActive(true);
+
+        if(previousItemIndex != -1)
+        {
+            items[previousItemIndex].itemGameObject.SetActive(false);
+        }
+
+        previousItemIndex = itemIndex;
     }
 
     public void SetGroundedState(bool _grounded)
