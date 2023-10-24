@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
     private float countdown = 10f; // Initialize a countdown timer with a value of 10 seconds.
     public TMP_Text countNumbers; // Reference to a TextMeshPro text component for displaying the countdown.
-
+ 
     void Start()
     {
         if (countNumbers == null)
@@ -19,18 +19,9 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (countNumbers != null)
+        if (countNumbers != null && countdown > 0)
         {
-            if (countdown > 0)
-            {
-                countdown -= Time.deltaTime; // Decrement the countdown by the time passed in the current frame.
-            }
-            else
-            {
-                // DESTROY TIMER
-                // DESTROY PLAYER
-            }
-
+            countdown -= Time.deltaTime; // Decrement the countdown by the time passed in the current frame.
             double b = System.Math.Round(countdown, 2); // Round the countdown value to two decimal places and store it in a double variable 'b'.
             countNumbers.text = b.ToString(); // Update the TextMeshPro text component with the rounded countdown value as a string.
         }

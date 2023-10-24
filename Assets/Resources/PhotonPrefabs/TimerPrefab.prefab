@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countNumbers: {fileID: 4639521430932869766}
-  player: {fileID: 116016375982311671, guid: 702f22768546ef040905366ff84a36ed, type: 3}
 --- !u!114 &5786055061588313118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +250,7 @@ GameObject:
   - component: {fileID: 4436863338096107420}
   - component: {fileID: 3775237364105633177}
   m_Layer: 5
-  m_Name: timerPrefab
+  m_Name: TimerPrefab
   m_TagString: timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

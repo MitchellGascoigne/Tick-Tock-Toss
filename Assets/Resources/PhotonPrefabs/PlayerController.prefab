@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6966532270671717080
 Transform:
   m_ObjectHideFlags: 0
@@ -169,8 +169,6 @@ MonoBehaviour:
   walkSpeed: 3
   jumpForce: 300
   smoothTime: 0.15
-  timerPrefab: {fileID: 5850277780875142460, guid: 53305dda9a417004d9d46b203232c475,
-    type: 3}
   playerAnimator: {fileID: 9056768805579697679}
 --- !u!1 &153458155423171003
 GameObject:
