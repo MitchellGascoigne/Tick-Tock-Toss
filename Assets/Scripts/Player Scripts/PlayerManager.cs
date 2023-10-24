@@ -29,11 +29,19 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         // Instantiate the player's controller GameObject for the local player.
         // The "PhotonPrefabs" folder is used to locate the player prefab.
         // It's placed at position (0, 0, 0) with no rotation.
-        GameObject playerController = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerController"), Vector3.zero, Quaternion.identity);
-
-        // After creating the player controller, instantiate the timer above the player's head.
-        timerManager.InstantiateTimerAbovePlayer(playerController);
-        Debug.Log("Instantiated Timer Prefab");
+        GameObject playerController = PhotonNetwork.Instantiate("PlayerController", Vector3.zero, Quaternion.identity);
     }
+    public void InstantiateTimerAbovePlayer(Player player)
+    {
+        if (timerManager == null)
+        {
+            Debug.LogWarning("TimerManager reference is null. Cannot instantiate timer.");
+            return;
+        }
+
+        timerManager.InstantiateTimerAbovePlayer(player);
+        Debug.Log("Instantiated Timer Prefab above player's head.");
+    }
+
 
 }

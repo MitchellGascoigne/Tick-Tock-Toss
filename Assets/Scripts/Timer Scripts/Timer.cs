@@ -25,6 +25,10 @@ public class Timer : MonoBehaviour
             double b = System.Math.Round(countdown, 2); // Round the countdown value to two decimal places and store it in a double variable 'b'.
             countNumbers.text = b.ToString(); // Update the TextMeshPro text component with the rounded countdown value as a string.
         }
+        else
+        {
+
+        }
     }
 }
 
