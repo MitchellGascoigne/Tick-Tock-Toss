@@ -41,6 +41,7 @@ Transform:
   - {fileID: 7846067147858326897}
   - {fileID: 2584183566781807892}
   - {fileID: 3737843018904972312}
+  - {fileID: 8438898583604322597}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9056768805579697679
@@ -170,7 +171,7 @@ MonoBehaviour:
   jumpForce: 300
   smoothTime: 0.15
   items:
-  - {fileID: 6038505142966499610}
+  - {fileID: 2241963828289871640}
   playerAnimator: {fileID: 9056768805579697679}
 --- !u!1 &153458155423171003
 GameObject:
@@ -20366,6 +20367,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1575471985705537682}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3807058889106935963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8438898583604322597}
+  m_Layer: 0
+  m_Name: Raycast Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8438898583604322597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3807058889106935963}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6966532270671717080}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3889611763315923688
 GameObject:
   m_ObjectHideFlags: 0
@@ -30496,7 +30528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4966960257304632823}
-  - component: {fileID: 6038505142966499610}
+  - component: {fileID: 2241963828289871640}
   m_Layer: 0
   m_Name: Timer1Item
   m_TagString: Untagged
@@ -30520,7 +30552,7 @@ Transform:
   - {fileID: 5542098307945503024}
   m_Father: {fileID: 8325659863008938625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6038505142966499610
+--- !u!114 &2241963828289871640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30529,11 +30561,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7416792031363150247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7451e03466fe2f54aa2b1027be7dbd33, type: 3}
+  m_Script: {fileID: 11500000, guid: 284e9c534f2dc1e46989632d21841e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerInfo: {fileID: 11400000, guid: 5a084584762c052409b8020736a84087, type: 2}
+  itemInfo: {fileID: 11400000, guid: d3e4af75d6adbfa45892bb4184c8f3c7, type: 2}
   itemGameObject: {fileID: 1847271822997058099}
+  raycastPoint: {fileID: 8438898583604322597}
 --- !u!1 &7585819332995014285
 GameObject:
   m_ObjectHideFlags: 0

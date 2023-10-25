@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ItemData/Generic")]
-// Generic item. Works with Item and ItemBombPassable.
+[CreateAssetMenu(menuName = "Items/Generic")]
+// Generic item. Works with Item;
 public class ItemInfo : ScriptableObject
 {
     public string itemName;

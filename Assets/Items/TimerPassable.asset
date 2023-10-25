@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7da59ba66205f34ab28e09f385d4c3f, type: 3}
-  m_Name: Timer1
+  m_Script: {fileID: 11500000, guid: 5864d8f9a7ef6434fa1ba691d6e383dd, type: 3}
+  m_Name: TimerPassable
   m_EditorClassIdentifier: 
-  ItemName: Timer1
+  itemName: Pass the Bomb!
+  range: 10

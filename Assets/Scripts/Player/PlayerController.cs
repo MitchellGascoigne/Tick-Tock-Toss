@@ -47,6 +47,11 @@ public class PlayerController : MonoBehaviourPun
         Look();  // Handle camera look/rotation.
         Move();  // Handle player movement.
         Jump();  // Handle player jumping.
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            items[itemIndex].Use();
+        }
     }
 
     void Look()
@@ -110,5 +115,10 @@ public class PlayerController : MonoBehaviourPun
 
         // Move the Rigidbody's position based on the current player's input (moveAmount) and time step.
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+    }
+
+    public PhotonView GetPhotonView ()
+    {
+        return photonView;
     }
 }

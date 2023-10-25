@@ -60,7 +60,7 @@ public class TimerUI : MonoBehaviour
 
         if (currentTarget != null)
         {
-            // If the bomb will detonate on you next, turn the text red and add (You). Otherwise, turn the text white.
+            // If the timer will detonate on you next, turn the text red and add (You). Otherwise, turn the text white.
             timerText.color = currentTarget == PhotonNetwork.LocalPlayer ? Color.red : Color.white;
             text += currentTarget == PhotonNetwork.LocalPlayer ? " (You)" : "";
         }
