@@ -19,6 +19,8 @@ public class PlayerDetonation : MonoBehaviourPun
     // This is how this script begins "listening" to changes to the timer and target.
     void OnEnable ()
     {
+        // Kind of crude; set visualsEnabled to true so that DisableVisuals will run, even though visualsEnabled starts off as false.
+        visualsEnabled = true;
         DisableVisuals();
 
         TimerManager.OnCurrentTimerChanged += OnCurrentTimerChanged;
@@ -79,7 +81,8 @@ public class PlayerDetonation : MonoBehaviourPun
         if (!PhotonNetwork.IsMasterClient)
             return;
 
-        // Send the Detonate RPC to every. The controller will die, and all clients will spawn particles on their end rather than instantiating particles.
+        TimerManager.Instance.PlayerDetonated();
+        // Send the Detonate RPC to everyone. The controller of the PhotonView will die, and all clients will spawn particles on their end rather than instantiating particles on the network.
         photonView.RPC(nameof(RPC_Detonate), RpcTarget.All);
     }
 

@@ -72,12 +72,13 @@ public class TimerManager : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region Timer Countdown
+    #region Countdowns
 
     // Personally, I like to use FixedUpdate for pretty much any case where actual game logic is running.
     void FixedUpdate ()
     {
         SetTimer(currentTimer - Time.fixedDeltaTime, true);
+        TrySelectNewTarget();
     }
 
     #endregion
@@ -166,6 +167,30 @@ public class TimerManager : MonoBehaviourPunCallbacks
     {
         // Optionally, you could put some sort of checks and validation code here. For now, just accept the client's request to switch target.
         SetTarget(targetActorNumber);
+    }
+
+    #endregion
+
+    #region Detonation
+    // This region manages selecting players after a detonation has occured.
+
+    public void PlayerDetonated ()
+    {
+        lastDetonation = Time.time;
+    }
+
+    void TrySelectNewTarget ()
+    {
+        // Don't execute code if the timer is still cooling down, or if the timer is still going.
+        if (!PhotonNetwork.IsMasterClient)
+            return;
+        if (Time.time < lastDetonation + timerCooldown)
+            return;
+        if (currentTimer > 0)
+            return;
+
+        SetTimer(timerDuration);
+        FindRandomTarget();
     }
 
     #endregion
