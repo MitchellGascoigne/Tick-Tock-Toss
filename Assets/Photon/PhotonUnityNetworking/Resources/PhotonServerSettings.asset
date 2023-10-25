@@ -43,6 +43,9 @@ MonoBehaviour:
   - AssignTimerToPlayer
   - PassTimer
   - AssignTimerToRandomPlayer
+  - RPC_RequestTargetChange
+  - RPC_SetTarget
+  - RPC_SetTimer
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

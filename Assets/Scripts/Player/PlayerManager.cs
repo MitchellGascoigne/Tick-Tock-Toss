@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         // It's placed at position (0, 0, 0) with no rotation.
         GameObject playerController = PhotonNetwork.Instantiate("PlayerController", Vector3.zero, Quaternion.identity);
     }
-    public void InstantiateTimerAbovePlayer(Player player)
+    /*public void InstantiateTimerAbovePlayer(Player player)
     {
         if (timerManager == null)
         {
@@ -41,7 +41,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
         timerManager.InstantiateTimerAbovePlayer(player);
         Debug.Log("Instantiated Timer Prefab above player's head.");
-    }
+    }*/
 
 
 }
