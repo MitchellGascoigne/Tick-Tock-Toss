@@ -121,4 +121,10 @@ public class PlayerController : MonoBehaviourPun
     {
         return photonView;
     }
+
+    // TEMPORARY!!! This should be improved later.
+    public void Die ()
+    {
+        PhotonNetwork.Destroy(gameObject);
+    }
 }

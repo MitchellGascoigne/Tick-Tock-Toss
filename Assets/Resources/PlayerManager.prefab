@@ -69,4 +69,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 116016375982311671, guid: 702f22768546ef040905366ff84a36ed,
     type: 3}
-  timerManager: {fileID: 0}

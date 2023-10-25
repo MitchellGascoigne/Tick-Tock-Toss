@@ -7,7 +7,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 {
     PhotonView PV;           // Reference to the PhotonView component attached to this GameObject.
     public GameObject playerPrefab;  // The player's prefab to be instantiated for each player.
-    [SerializeField] private TimerManager timerManager;
 
     private void Awake()
     {
@@ -31,17 +30,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         // It's placed at position (0, 0, 0) with no rotation.
         GameObject playerController = PhotonNetwork.Instantiate("PlayerController", Vector3.zero, Quaternion.identity);
     }
-    /*public void InstantiateTimerAbovePlayer(Player player)
-    {
-        if (timerManager == null)
-        {
-            Debug.LogWarning("TimerManager reference is null. Cannot instantiate timer.");
-            return;
-        }
-
-        timerManager.InstantiateTimerAbovePlayer(player);
-        Debug.Log("Instantiated Timer Prefab above player's head.");
-    }*/
 
 
 }
