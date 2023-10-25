@@ -19,6 +19,8 @@ public class PlayerDetonation : MonoBehaviourPun
     // This is how this script begins "listening" to changes to the timer and target.
     void OnEnable ()
     {
+        DisableVisuals();
+
         TimerManager.OnCurrentTimerChanged += OnCurrentTimerChanged;
         TimerManager.OnCurrentTargetChanged += OnCurrentTargetChanged;
 
@@ -104,6 +106,7 @@ public class PlayerDetonation : MonoBehaviourPun
             return;
 
         visuals.SetActive(true);
+        visualsEnabled = true;
     }
 
     void DisableVisuals ()
@@ -112,5 +115,6 @@ public class PlayerDetonation : MonoBehaviourPun
             return;
 
         visuals.SetActive(false);
+        visualsEnabled = false;
     }
 }

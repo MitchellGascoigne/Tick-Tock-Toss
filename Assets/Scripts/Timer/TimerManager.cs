@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TimerManager : MonoBehaviourPunCallbacks
 {
-    // So other scripts can easily access this script by using TimerManager.Instance . { get; private set; } means only this script can set this value.
+    // So other scripts can easily access this script by using 'TimerManager.Instance'. '{ get; private set; }' means only this script can set this value.
     public static TimerManager Instance { get; private set; }
 
     // These events allow other scripts to be notified only whenever the timer or target is changed.
@@ -170,7 +170,7 @@ public class TimerManager : MonoBehaviourPunCallbacks
 
     #endregion
 
-    /*
+    /* OLD CODE
      * void Start()
     {
         // Check if this is the master client to avoid conflicts.
