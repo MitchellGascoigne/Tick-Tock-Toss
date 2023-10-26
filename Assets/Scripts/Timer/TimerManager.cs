@@ -18,7 +18,7 @@ public class TimerManager : MonoBehaviourPunCallbacks
     public static float CurrentTimer { get { return Instance.currentTimer; } set { Instance.SetTimer(value); } }
     public static Player CurrentTarget { get { return Instance.currentTarget; } set { Instance.SetTarget(value); } }
 
-    [SerializeField] float timerDuration = 10f;
+    [SerializeField] float timerDuration = 60f;
     [SerializeField] float timerCooldown = 2.5f;
 
     float lastDetonation = 999999f; //set to a very high value so there are no issues with the code trying to switch players before someone has detonated.
