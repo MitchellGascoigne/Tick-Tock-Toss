@@ -23,18 +23,39 @@ public class TimerPassable : Item
         TryPassBomb();
     }
 
-    void TryPassBomb ()
+    //void TryPassBomb ()
+    //{
+    //    if (!Physics.Raycast(raycastPoint.position, raycastPoint.forward, out RaycastHit hit, bombPassable.range))
+    //        return;
+
+    //    // Try find a PlayerController from the hit object. If it doesn't exist, stop executing code
+    //    PlayerController controller = hit.collider.gameObject.GetComponent<PlayerController>();
+    //    if (controller == null)
+    //        return;
+
+    //    PassBomb(controller.GetPhotonView().Controller);
+    //}
+    public void TryPassBomb()
     {
-        if (!Physics.Raycast(raycastPoint.position, raycastPoint.forward, out RaycastHit hit, bombPassable.range))
-            return;
+        // If the bombPassable range is greater than 0, use raycasting.
+        if (bombPassable.range > 0f)
+        {
+            if (!Physics.Raycast(raycastPoint.position, raycastPoint.forward, out RaycastHit hit, bombPassable.range))
+                return;
 
-        // Try find a PlayerController from the hit object. If it doesn't exist, stop executing code
-        PlayerController controller = hit.collider.gameObject.GetComponent<PlayerController>();
-        if (controller == null)
-            return;
+            PlayerController controller = hit.collider.gameObject.GetComponent<PlayerController>();
+            if (controller == null)
+                return;
 
-        PassBomb(controller.GetPhotonView().Controller);
+            PassBomb(controller.GetPhotonView().Controller);
+        }
+        // If the bombPassable range is 0, use collision-based approach.
+        else
+        {
+            // This part will be handled by the PlayerCollision script.
+        }
     }
+
 
     // Put in a request for the MasterClient to change the timer's target.
     void PassBomb (Player target)

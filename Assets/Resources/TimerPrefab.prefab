@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7604926657852154950}
   - component: {fileID: 3952507374477568367}
   - component: {fileID: 3705977286218505099}
-  - component: {fileID: 973226501465873174}
   m_Layer: 5
   m_Name: TimerDisplay
   m_TagString: Untagged
@@ -222,19 +221,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &973226501465873174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3118852227878643308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8dd51b1c7434d94b8c77763399648a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countNumbers: {fileID: 7236233077003514048}
 --- !u!1 &7350110557427567681
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +306,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8563624886847507196
 MonoBehaviour:
   m_ObjectHideFlags: 0
