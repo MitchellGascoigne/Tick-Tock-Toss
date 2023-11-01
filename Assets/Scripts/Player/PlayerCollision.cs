@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Photon.Realtime;
-using System;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -19,7 +15,7 @@ public class PlayerCollision : MonoBehaviour
         PlayerController controller = collision.gameObject.GetComponent<PlayerController>();
         if (controller != null)
         {
-            timerPassable.TryPassBomb(controller.GetPhotonView().Controller);
+           // timerPassable.TryPassBomb(controller.GetPhotonView().Controller);
         }
     }
 }
