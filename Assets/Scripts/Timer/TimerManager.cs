@@ -13,6 +13,9 @@ public class TimerManager : MonoBehaviourPunCallbacks
     public static event Action<float> OnCurrentTimerChanged;
     public static event Action<Player> OnCurrentTargetChanged;
 
+    // After the timer is passed, how long it takes before the timer can be passed again.
+    const float timerPassCooldown = 1f;
+
     // CurrentTimer and CurrentTarget are essentially easy ways to access and set the actual values of currentTimer and currentTarget. 
     // Even within this script, only use CurrentTimer and CurrentTarget or SetTimer and SetTarget instead of directly setting currentTimer or currentTarget.
     public static float CurrentTimer { get { return Instance.currentTimer; } set { Instance.SetTimer(value); } }
@@ -21,7 +24,8 @@ public class TimerManager : MonoBehaviourPunCallbacks
     [SerializeField] float timerDuration = 60f;
     [SerializeField] float timerCooldown = 2.5f;
 
-    float lastDetonation = 999999f; //set to a very high value so there are no issues with the code trying to switch players before someone has detonated.
+    float lastTargetChange = -999999f; // Set to a very low value so there are no issues with the target being unable to be switched.
+    float lastDetonation = 999999f; // Set to a very high value so there are no issues with the code trying to switch players before someone has detonated.
     float currentTimer;
     Player currentTarget;
 
@@ -134,6 +138,10 @@ public class TimerManager : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsMasterClient)
             return;
 
+        // Don't set the target or send the message that the target has been set, if the target was changed recently.
+        if (Time.time < lastTargetChange + timerPassCooldown)
+            return;
+
         photonView.RPC(nameof(RPC_SetTarget), RpcTarget.All, targetActorNumber);
     }
 
@@ -158,14 +166,18 @@ public class TimerManager : MonoBehaviourPunCallbacks
             return;
 
         currentTarget = PhotonNetwork.CurrentRoom.GetPlayer(targetActorNumber, true);
+        lastTargetChange = Time.time;
 
         OnCurrentTargetChanged?.Invoke(currentTarget);
     }
 
     [PunRPC]
-    void RPC_RequestTargetChange (int targetActorNumber)
+    void RPC_RequestTargetChange (int targetActorNumber, PhotonMessageInfo info)
     {
-        // Optionally, you could put some sort of checks and validation code here. For now, just accept the client's request to switch target.
+        // Validation check: Stop running this code if the sender is not the current target. Ignore this if the sender is the MasterClient.
+        if (CurrentTarget != info.Sender && info.Sender != PhotonNetwork.MasterClient)
+            return;
+
         SetTarget(targetActorNumber);
     }
 
@@ -191,6 +203,15 @@ public class TimerManager : MonoBehaviourPunCallbacks
 
         SetTimer(timerDuration);
         FindRandomTarget();
+    }
+
+    #endregion
+
+    #region Utilities
+
+    public static bool IsLocalPlayerTarget ()
+    {
+        return CurrentTarget == PhotonNetwork.LocalPlayer;
     }
 
     #endregion
