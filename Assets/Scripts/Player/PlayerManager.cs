@@ -28,7 +28,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         // Instantiate the player's controller GameObject for the local player.
         // The "PhotonPrefabs" folder is used to locate the player prefab.
         // It's placed at position (0, 0, 0) with no rotation.
-        GameObject playerController = PhotonNetwork.Instantiate("PlayerController", Vector3.zero, Quaternion.identity);
+        Vector3 spawnPosition = new Vector3(0f, 1f, 0f); // Set your desired position here
+        GameObject playerController = PhotonNetwork.Instantiate("PlayerController", spawnPosition, Quaternion.identity);
+
     }
 
 
