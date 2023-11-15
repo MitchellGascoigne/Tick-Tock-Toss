@@ -20,18 +20,32 @@ public class PlayerManager : MonoBehaviourPunCallbacks
             CreateController();  // ...create the player's controller.
         }
     }
+    [SerializeField]
+    private GameObject[] spawnPositionObjects;
 
     private void CreateController()
     {
-        Debug.Log("Instantiated Player Controller");  // Log a message to the console.
+        Debug.Log("Instantiated Player Controller");
+
+        // Call SpawnPosition to select a random spawn position.
+        Transform selectedSpawnPosition = SpawnPosition();
 
         // Instantiate the player's controller GameObject for the local player.
         // The "PhotonPrefabs" folder is used to locate the player prefab.
-        // It's placed at position (0, 0, 0) with no rotation.
-        Vector3 spawnPosition = new Vector3(0f, 1f, 0f); // Set your desired position here
-        GameObject playerController = PhotonNetwork.Instantiate("PlayerController", spawnPosition, Quaternion.identity);
-
+        // It's placed at the selected spawn position with no rotation.
+        GameObject playerController = PhotonNetwork.Instantiate("PlayerController", selectedSpawnPosition.position, Quaternion.identity);
     }
 
+    private Transform SpawnPosition()
+    {
+        if (spawnPositionObjects.Length == 0)
+        {
+            Debug.LogError("No spawn positions available.");
+            return null;
+        }
+
+        int randomIndex = Random.Range(0, spawnPositionObjects.Length);
+        return spawnPositionObjects[randomIndex].transform;
+    }
 
 }
