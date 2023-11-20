@@ -20,9 +20,8 @@ public class DeathZone : MonoBehaviour
     public void RespawnPlayer(GameObject player)
     {
         // Set the player's position 
-        //PlayerManager managerInstance = new PlayerManager();
-        //player.transform.position = managerInstance.CreateController();
-        //player.SetActive(true);
+        player.transform.position = new Vector3(0f, 1f, 0f);
+
 
         // Re-enable the player object
         player.SetActive(true);
