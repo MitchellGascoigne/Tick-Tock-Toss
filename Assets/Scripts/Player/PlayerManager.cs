@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     [SerializeField]
 public GameObject[] spawnPositionObjects;
 
-    private void CreateController()
+    public void CreateController()
     {
         Debug.Log("Instantiated Player Controller");
 
@@ -34,9 +34,10 @@ public GameObject[] spawnPositionObjects;
         // The "PhotonPrefabs" folder is used to locate the player prefab.
         // It's placed at the selected spawn position with no rotation.
         GameObject playerController = PhotonNetwork.Instantiate("PlayerController", selectedSpawnPosition.position, Quaternion.identity);
+
     }
 
-    private Transform SpawnPosition()
+    public Transform SpawnPosition()
     {
         if (spawnPositionObjects.Length == 0)
         {

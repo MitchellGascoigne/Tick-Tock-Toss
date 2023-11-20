@@ -1,8 +1,9 @@
 using UnityEngine;
+using static PlayerManager;
 
 public class DeathZone : MonoBehaviour
 {
-    public Vector3 playerStartPosition; // Set this in the inspector
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,10 +17,12 @@ public class DeathZone : MonoBehaviour
         }
     }
 
-    private void RespawnPlayer(GameObject player)
+    public void RespawnPlayer(GameObject player)
     {
-        // Set the player's position to the starting position
-        player.transform.position = playerStartPosition;
+        // Set the player's position 
+        //PlayerManager managerInstance = new PlayerManager();
+        //player.transform.position = managerInstance.CreateController();
+        //player.SetActive(true);
 
         // Re-enable the player object
         player.SetActive(true);
