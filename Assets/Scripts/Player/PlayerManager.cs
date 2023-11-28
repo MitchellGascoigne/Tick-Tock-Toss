@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     PhotonView PV;           // Reference to the PhotonView component attached to this GameObject.
     PlayerController currentPlayer;
 
-    float lastDeath;
+    float lastDeath = -1000f; // Set to a low value to ensure spawning won't be immediately locked from the get-go in any scenario.
     bool respawnLocked;
 
     #region Initialisation
@@ -57,10 +57,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        if (PV.IsMine)  // If this GameObject belongs to the local player...
-        {
-            SpawnPlayer();  // ...create the player's controller.
-        }
+        SpawnPlayer(); // No checks are done, as SpawnPlayer already includes all spawning checks.
     }
 
     #endregion
@@ -91,6 +88,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     public void SpawnPlayer()
     {
+        if (!PV.IsMine)
+            return;
         if (respawnLocked)
             return;
         if (currentPlayer)
