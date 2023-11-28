@@ -101,6 +101,7 @@ public class PlayerDetonation : MonoBehaviourPun
             return;
 
         controller.Die();
+        PlayerManager.LocalPlayerManager.SetRespawnLockState(true); // Lock further respawns from happening.
     }
 
     void EnableVisuals ()

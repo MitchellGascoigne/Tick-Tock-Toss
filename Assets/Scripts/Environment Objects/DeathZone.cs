@@ -13,17 +13,12 @@ public class DeathZone : MonoBehaviour
             other.gameObject.SetActive(false);
 
             // Re-enable the player at the specified starting position
-            RespawnPlayer(other.gameObject);
+            KillPlayer(other.gameObject);
         }
     }
 
-    public void RespawnPlayer(GameObject player)
+    public void KillPlayer(GameObject player)
     {
-        // Set the player's position 
-        player.transform.position = new Vector3(0f, 1f, 0f);
-
-
-        // Re-enable the player object
-        player.SetActive(true);
+        player.GetComponent<PlayerController>().Die();
     }
 }

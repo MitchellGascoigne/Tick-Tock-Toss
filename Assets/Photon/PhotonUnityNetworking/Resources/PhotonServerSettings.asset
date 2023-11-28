@@ -47,6 +47,7 @@ MonoBehaviour:
   - RPC_SetTarget
   - RPC_SetTimer
   - RPC_Detonate
+  - RPC_Die
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
