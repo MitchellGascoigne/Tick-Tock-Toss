@@ -1,5 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviourPun
 {
@@ -126,5 +127,6 @@ public class PlayerController : MonoBehaviourPun
     public void Die ()
     {
         PhotonNetwork.Destroy(gameObject);
+        //SceneManager.LoadScene("Menu"); // OBVIOUSLY NOT RIGHT
     }
 }
