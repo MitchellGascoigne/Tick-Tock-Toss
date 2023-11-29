@@ -46,9 +46,4 @@ public class MenuManager : MonoBehaviour
     {
         menu.Close();
     }
-
-    //public void GameOver()
-    //{
-    //    GameOverScreen.Setup();   HOW TO CALL 
-    //}
 } 

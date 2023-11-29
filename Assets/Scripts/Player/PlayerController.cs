@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviourPun
         PV.RPC(nameof(RPC_Die), RpcTarget.All);
 
         PhotonNetwork.Destroy(gameObject);
-        //SceneManager.LoadScene("Menu"); // OBVIOUSLY NOT RIGHT
+        SceneManager.LoadScene("Menu"); // OBVIOUSLY NOT RIGHT
     }
 
     [PunRPC]
