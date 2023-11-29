@@ -41,4 +41,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
             PhotonNetwork.Instantiate(Path.Combine("PlayerManager"), Vector3.zero, Quaternion.identity);
         }
     }
+
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom();
+
+        PhotonNetwork.LoadLevel("Menu"); // Go to the menu after leaving the room, so other scripts can just call PhotonNetwork.LeaveRoom() without worrying about loading the menu.
+    }
 }

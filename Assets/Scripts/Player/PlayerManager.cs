@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
 {
-    const float spawnCooldown = 5f;
+    public const float spawnCooldown = 5f;
     public static event Action<GameObject, Vector3> OnLocalPlayerSpawn;
     public static event Action<Player, GameObject, Vector3> OnPlayerSpawn;
     public static event Action<Vector3> OnLocalPlayerDeath; // Vector3 = death position
@@ -124,6 +124,11 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     bool IsSpawnCooldownOver ()
     {
         return Time.time > lastDeath + spawnCooldown;
+    }
+
+    public bool IsRespawnLocked ()
+    {
+        return respawnLocked;
     }
 
     #endregion

@@ -129,13 +129,12 @@ public class PlayerController : MonoBehaviourPun
         return photonView;
     }
 
-    // TEMPORARY!!! This should be improved later.
     public void Die ()
     {
         PV.RPC(nameof(RPC_Die), RpcTarget.All);
 
         PhotonNetwork.Destroy(gameObject);
-        SceneManager.LoadScene("Menu"); // OBVIOUSLY NOT RIGHT
+        //SceneManager.LoadScene("Menu"); // OBVIOUSLY NOT RIGHT
     }
 
     [PunRPC]

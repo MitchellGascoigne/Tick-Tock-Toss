@@ -100,8 +100,8 @@ public class PlayerDetonation : MonoBehaviourPun
         if (PhotonNetwork.LocalPlayer != photonView.Controller)
             return;
 
-        controller.Die();
         PlayerManager.LocalPlayerManager.SetRespawnLockState(true); // Lock further respawns from happening.
+        controller.Die();
     }
 
     void EnableVisuals ()
