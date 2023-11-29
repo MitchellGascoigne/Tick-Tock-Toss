@@ -1,8 +1,13 @@
 using Photon.Pun;
+using Photon.Realtime;
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviourPun
 {
+    public static event Action<GameObject, Player> OnSpawn;
+    public static event Action<GameObject, Player> OnDeath;
     [SerializeField] GameObject cameraHolder;  // Reference to the camera holder GameObject.
     [SerializeField] float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;  // Player movement and camera control parameters.
     [SerializeField] Item[] items;
@@ -23,6 +28,8 @@ public class PlayerController : MonoBehaviourPun
     {
         rb = GetComponent<Rigidbody>();   // Get the player's Rigidbody component.
         PV = GetComponent<PhotonView>();  // Get the PhotonView component for network synchronization.
+
+        OnSpawn?.Invoke(gameObject, PV.Owner);
     }
 
     void Start()
@@ -47,6 +54,11 @@ public class PlayerController : MonoBehaviourPun
         Look();  // Handle camera look/rotation.
         Move();  // Handle player movement.
         Jump();  // Handle player jumping.
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            items[itemIndex].Use();
+        }
     }
 
     void Look()
@@ -110,5 +122,25 @@ public class PlayerController : MonoBehaviourPun
 
         // Move the Rigidbody's position based on the current player's input (moveAmount) and time step.
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+    }
+
+    public PhotonView GetPhotonView ()
+    {
+        return photonView;
+    }
+
+    // TEMPORARY!!! This should be improved later.
+    public void Die ()
+    {
+        PV.RPC(nameof(RPC_Die), RpcTarget.All);
+
+        PhotonNetwork.Destroy(gameObject);
+        //SceneManager.LoadScene("Menu"); // OBVIOUSLY NOT RIGHT
+    }
+
+    [PunRPC]
+    void RPC_Die ()
+    {
+        OnDeath?.Invoke(gameObject, PV.Owner);
     }
 }

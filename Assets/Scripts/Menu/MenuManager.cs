@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerManager;
 
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
+    // public GameOverScreen GameOverScreen; // SHOULD I CALL THIS HERE
 
     [SerializeField] Menu[] menus;
 
@@ -44,4 +46,9 @@ public class MenuManager : MonoBehaviour
     {
         menu.Close();
     }
-}
+
+    //public void GameOver()
+    //{
+    //    GameOverScreen.Setup();   HOW TO CALL 
+    //}
+} 
