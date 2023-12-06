@@ -85,6 +85,20 @@ public class PlayerDetonation : MonoBehaviourPun
         // Send the Detonate RPC to everyone. The controller of the PhotonView will die, and all clients will spawn particles on their end rather than instantiating particles on the network.
         photonView.RPC(nameof(RPC_Detonate), RpcTarget.All);
     }
+    //void Detonate()
+    //{
+    //    if (photonView.Controller != PhotonNetwork.LocalPlayer)
+    //        return;
+
+    //    if (!PhotonNetwork.IsMasterClient)
+    //    {
+    //        Debug.LogWarning("Detonate called by non-master client. Ignoring.");
+    //        return;
+    //    }
+
+    //    TimerManager.Instance.PlayerDetonated();
+    //    photonView.RPC(nameof(RPC_Detonate), RpcTarget.All);
+    //}
 
     [PunRPC]
     void RPC_Detonate (PhotonMessageInfo info)
