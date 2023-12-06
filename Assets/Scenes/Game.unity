@@ -73879,7 +73879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f974326f22e1944a4c1050f42aa57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDuration: 2
+  timerDuration: 60
   timerCooldown: 2.5
 --- !u!4 &2120872201
 Transform:
