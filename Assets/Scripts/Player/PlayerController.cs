@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviourPun
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation;
     }
 
+    [PunRPC]
     void Move()
     {
         // Calculate the player's movement direction based on input.

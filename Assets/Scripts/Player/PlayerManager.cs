@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public static event Action<Player, Vector3> OnPlayerDeath;
     public static PlayerManager LocalPlayerManager { get; private set; }
 
-    [SerializeField] GameObject[] spawnPositionObjects;
+    [SerializeField] Transform[] spawnPositionObjects; // Transform vs GameObject
     PhotonView PV;           // Reference to the PhotonView component attached to this GameObject.
     PlayerController currentPlayer;
 

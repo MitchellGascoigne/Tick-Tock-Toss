@@ -16,8 +16,10 @@ GameObject:
   - component: {fileID: -7379284187591863653}
   - component: {fileID: 5588011791608808176}
   - component: {fileID: 3566516507193235957}
-  - component: {fileID: 787339260553682550}
   - component: {fileID: 3593111762793560655}
+  - component: {fileID: 4222483517922194952}
+  - component: {fileID: 55542657557924666}
+  - component: {fileID: 9148785516436921789}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -141,6 +143,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 5588011791608808176}
+  - {fileID: 9148785516436921789}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -187,8 +190,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &787339260553682550
-BoxCollider:
+--- !u!114 &3593111762793560655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116016375982311671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd83caf08e03a594f84639c1c5f92fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &4222483517922194952
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -205,10 +220,12 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.54, y: 0.68, z: 1}
-  m_Center: {x: 0.003, y: 0.34, z: 0}
---- !u!114 &3593111762793560655
+  serializedVersion: 2
+  m_Radius: 0.25307083
+  m_Height: 0.7879888
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.33332568, z: -0.015143812}
+--- !u!114 &55542657557924666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,9 +234,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 116016375982311671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd83caf08e03a594f84639c1c5f92fc3, type: 3}
+  m_Script: {fileID: 11500000, guid: e0e8b381f2c05442ca5c01638958156a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9148785516436921789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116016375982311671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: walk
+  - Type: 9
+    SynchronizeType: 0
+    Name: attack01
+  - Type: 9
+    SynchronizeType: 2
+    Name: damage
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &174107246328129416
 GameObject:
   m_ObjectHideFlags: 0
