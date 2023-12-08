@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviourPun
     
     public Animator playerAnimator;  // Animator for player animations.
     float verticalLookRotation;  // Vertical camera rotation value.
-    bool grounded;  // Indicates if the player is grounded.
+    [SerializeField] bool grounded;  // Indicates if the player is grounded.
     Vector3 smoothMoveVelocity;  // Velocity used for smoothing player movement.
     Vector3 moveAmount;  // Total movement amount.
     Rigidbody rb;  // Player's Rigidbody component.

@@ -69,6 +69,7 @@ MonoBehaviour:
   items:
   - {fileID: 2241963828289871640}
   playerAnimator: {fileID: 9056768805579697679}
+  grounded: 1
 --- !u!114 &7012240798550467882
 MonoBehaviour:
   m_ObjectHideFlags: 0
