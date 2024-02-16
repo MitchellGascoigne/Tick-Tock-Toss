@@ -55,6 +55,16 @@ public class PlayerController : MonoBehaviourPun
         Move();  // Handle player movement.
         Jump();  // Handle player jumping.
 
+        for (int i = 0; i < items.Length; i++)
+        {
+
+            if (Input.GetKeyDown((i + 1).ToString()))
+            {
+                EquipItem(i);
+                break;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             items[itemIndex].Use();
@@ -99,6 +109,10 @@ public class PlayerController : MonoBehaviourPun
 
     void EquipItem(int _index)
     {
+
+        if (_index == previousItemIndex)
+            return;
+
         itemIndex = _index;
         items[itemIndex].itemGameObject.SetActive(true);
 
