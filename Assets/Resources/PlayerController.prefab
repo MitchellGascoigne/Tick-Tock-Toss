@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: 4222483517922194952}
   - component: {fileID: 55542657557924666}
   - component: {fileID: 9148785516436921789}
-  - component: {fileID: 3476250855426414365}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -267,23 +266,6 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
---- !u!114 &3476250855426414365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116016375982311671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee226311c3517d4191d702a2427a167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 919132149155446097, guid: 62adf52efb268cd4da836a5bb90bc01a, type: 3}
-  PlayerTransform: {fileID: 0}
-  range: 3
-  Go: 100
-  Camera: {fileID: 550078440856454917}
 --- !u!1 &174107246328129416
 GameObject:
   m_ObjectHideFlags: 0
@@ -16923,12 +16905,6 @@ PrefabInstance:
       addedObject: {fileID: 8325659863008938625}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b12089aed5aeb469d6317d02dde34f, type: 3}
---- !u!20 &550078440856454917 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8178883955643828372, guid: e1b12089aed5aeb469d6317d02dde34f,
-    type: 3}
-  m_PrefabInstance: {fileID: 8512787301503553425}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2584183566781807892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6196851595557024389, guid: e1b12089aed5aeb469d6317d02dde34f,

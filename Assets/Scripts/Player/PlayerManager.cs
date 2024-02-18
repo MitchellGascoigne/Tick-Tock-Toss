@@ -127,8 +127,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
             return null;
         }
 
-        int randomIndex = Random.Range(0, spawnPositionObjects.Length);
-        return spawnPositionObjects[randomIndex].transform;
+        //int randomIndex = = Random.Range(0, spawnPositionObjects.Length);  FIX THIS 
+        //return spawnPositionObjects[randomIndex].transform;
+        return spawnPositionObjects[0].transform;
     }
 
     bool IsSpawnCooldownOver ()
