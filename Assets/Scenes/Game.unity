@@ -6881,6 +6881,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leave Room Button
       objectReference: {fileID: 0}
+    - target: {fileID: 2372524129678334617, guid: af3ec5ab6ac27c44b9a12573c1e52aae,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9a32a6cc2cb803443983d45d4a513506,
+        type: 3}
+    - target: {fileID: 3026332859786242999, guid: af3ec5ab6ac27c44b9a12573c1e52aae,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -148.1481
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026332859786242999, guid: af3ec5ab6ac27c44b9a12573c1e52aae,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.0897064
+      objectReference: {fileID: 0}
     - target: {fileID: 3344732146999357739, guid: af3ec5ab6ac27c44b9a12573c1e52aae,
         type: 3}
       propertyPath: m_text
@@ -12334,10 +12350,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 330740002}
-    - targetCorrespondingSourceObject: {fileID: 5798949137346625283, guid: 31207ba20ec361a4cb059243faa351ce,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 330740003}
   m_SourcePrefab: {fileID: 100100000, guid: 31207ba20ec361a4cb059243faa351ce, type: 3}
 --- !u!1 &330740001 stripped
 GameObject:
@@ -12372,19 +12384,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
---- !u!114 &330740003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330740001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faf5487feb5aac740b242bc7d6b68952, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 50
 --- !u!114 &330740009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66940,6 +66939,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1767105910}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1767243560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767243562}
+  - component: {fileID: 1767243561}
+  m_Layer: 0
+  m_Name: HideMouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1767243561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767243560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35031125c5445a429cd8bbd3a96bf1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1767243562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767243560}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 566.1899, y: 0.9039111, z: 497.4334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1767258985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80289,3 +80332,4 @@ SceneRoots:
   - {fileID: 1750900930}
   - {fileID: 330740000}
   - {fileID: 69106031}
+  - {fileID: 1767243562}
