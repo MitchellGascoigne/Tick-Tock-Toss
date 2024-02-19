@@ -1222,7 +1222,7 @@ PrefabInstance:
     - target: {fileID: 1828395035768741748, guid: 2b405e8112a67ef4883c82c939256e91,
         type: 3}
       propertyPath: m_Name
-      value: Button BG
+      value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 1828395035768741750, guid: 2b405e8112a67ef4883c82c939256e91,
         type: 3}
@@ -1323,7 +1323,7 @@ PrefabInstance:
     - target: {fileID: 3899854134269982127, guid: 2b405e8112a67ef4883c82c939256e91,
         type: 3}
       propertyPath: m_Name
-      value: Button BG
+      value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 3899854134281257035, guid: 2b405e8112a67ef4883c82c939256e91,
         type: 3}

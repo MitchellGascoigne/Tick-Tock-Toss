@@ -12251,7 +12251,7 @@ PrefabInstance:
     - target: {fileID: 5798949137346625283, guid: 31207ba20ec361a4cb059243faa351ce,
         type: 3}
       propertyPath: m_Name
-      value: Barrel Variant
+      value: Explosive
       objectReference: {fileID: 0}
     - target: {fileID: 5798949137346625283, guid: 31207ba20ec361a4cb059243faa351ce,
         type: 3}
@@ -12281,17 +12281,17 @@ PrefabInstance:
     - target: {fileID: 6571263304003102137, guid: 31207ba20ec361a4cb059243faa351ce,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.59
+      value: 2.22
       objectReference: {fileID: 0}
     - target: {fileID: 6571263304003102137, guid: 31207ba20ec361a4cb059243faa351ce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.99
+      value: 11.53
       objectReference: {fileID: 0}
     - target: {fileID: 6571263304003102137, guid: 31207ba20ec361a4cb059243faa351ce,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.838852
+      value: 6.95
       objectReference: {fileID: 0}
     - target: {fileID: 6571263304003102137, guid: 31207ba20ec361a4cb059243faa351ce,
         type: 3}
@@ -12344,10 +12344,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5798949137346625283, guid: 31207ba20ec361a4cb059243faa351ce,
         type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 330740009}
-    - targetCorrespondingSourceObject: {fileID: 5798949137346625283, guid: 31207ba20ec361a4cb059243faa351ce,
-        type: 3}
       insertIndex: -1
       addedObject: {fileID: 330740002}
   m_SourcePrefab: {fileID: 100100000, guid: 31207ba20ec361a4cb059243faa351ce, type: 3}
@@ -12379,23 +12375,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 90
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &330740009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330740001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2124cdc709dae644cae3a0e46fcc3469, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &333669034
 PrefabInstance:
   m_ObjectHideFlags: 0
