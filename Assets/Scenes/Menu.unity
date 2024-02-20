@@ -2358,7 +2358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &683042058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3056,7 +3056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &958910398
 Transform:
   m_ObjectHideFlags: 0
@@ -3475,7 +3475,7 @@ MonoBehaviour:
   m_sharedMaterial: {fileID: 6879848517169556122, guid: e5b1a6a953f549f4b9ec0668422b8af6,
     type: 2}
   m_fontSharedMaterials:
-  - {fileID: -7762849089331388026, guid: a171d47bc3b80bf4bacdb691bd7047a3, type: 2}
+  - {fileID: 6879848517169556122, guid: e5b1a6a953f549f4b9ec0668422b8af6, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -6490,7 +6490,7 @@ PrefabInstance:
     - target: {fileID: 9008926967559029136, guid: 3fc6349eb7cef1d4c8e233b22ad984d3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 299.99988
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 9008926967559029136, guid: 3fc6349eb7cef1d4c8e233b22ad984d3,
         type: 3}
