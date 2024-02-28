@@ -46,6 +46,6 @@ public class Explosive : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject); we do not need to destroy anymore as this will be called from the inventory class
     }
 }
