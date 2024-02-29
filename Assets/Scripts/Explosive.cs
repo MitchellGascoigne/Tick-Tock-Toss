@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosive : MonoBehaviour 
+public class Explosive : MonoBehaviour
 {
     public float delay = 3f;
     public float radius = 5f;

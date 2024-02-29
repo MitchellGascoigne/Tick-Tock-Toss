@@ -16763,6 +16763,8 @@ MonoBehaviour:
   throwforce: 10
   grenadePrefab: {fileID: 7682394210210988956, guid: 6bf1526fa9a6d5e478439faa2d8b6cc0,
     type: 3}
+  ammo: 1
+  maxAmmo: -1
 --- !u!4 &3410084128785901386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7049972317259340070, guid: 6bf1526fa9a6d5e478439faa2d8b6cc0,
