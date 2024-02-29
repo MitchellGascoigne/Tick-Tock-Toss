@@ -23,7 +23,7 @@ public class ExplosiveThrower : Item, IAmmo
         if (ammo <= 0)
             return;
 
-        GameObject grenade = Instantiate(grenadePrefab, transform.position, transform.rotation);
+        GameObject grenade = Instantiate(grenadePrefab, itemGameObject.transform.position, transform.rotation);
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * throwforce, ForceMode.VelocityChange);
 

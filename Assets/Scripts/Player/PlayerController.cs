@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviourPun
     int itemIndex;
     int previousItemIndex = -1;
     
+    // microman: Just a tip for future, don't leave comments like this. If something is confusing, explain it-
+    // -but generally, variable names are be self-explanatory. That's why they have names.
     
     public Animator playerAnimator;  // Animator for player animations.
     float verticalLookRotation;  // Vertical camera rotation value.
@@ -156,5 +158,10 @@ public class PlayerController : MonoBehaviourPun
     void RPC_Die ()
     {
         OnDeath?.Invoke(gameObject, PV.Owner);
+    }
+
+    public Item[] GetItems ()
+    {
+        return items;
     }
 }

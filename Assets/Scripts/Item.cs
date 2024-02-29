@@ -23,4 +23,9 @@ public class Item : MonoBehaviour
     {
         // No code here! This doesn't mean the function is useless. It's designed for derived classes to use.
     }
+
+    public ItemInfo GetItem ()
+    {
+        return itemInfo;
+    }
 }
