@@ -47,7 +47,7 @@ public class ExplosiveThrower : Item, IAmmo
 
     public int GetCurrentAmmo ()
     {
-        return maxAmmo;
+        return ammo;
     }
 
     public void ChangeReserveAmmo (int ammoAmount)
