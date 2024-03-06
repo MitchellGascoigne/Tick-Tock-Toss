@@ -7,6 +7,7 @@ using TMPro;
 
 public class DeathUI : MonoBehaviour
 {
+
     [SerializeField] Canvas target;
     [SerializeField] TMP_Text respawnText;
     float lastDeath;
@@ -42,6 +43,7 @@ public class DeathUI : MonoBehaviour
         respawning = !PlayerManager.LocalPlayerManager.IsRespawnLocked();
 
         UpdateRespawnText();
+        UnityEngine.Cursor.visible = true;
     }
 
     void OnLocalPlayerSpawn(GameObject playerObject, Vector3 position)

@@ -93,6 +93,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         PhotonNetwork.LoadLevel("Game");
+        UnityEngine.Cursor.visible = false;
     }
 
     public void QuitGame()
@@ -105,16 +106,19 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LeaveRoom();
         MenuManager.Instance.OpenMenu("loading");
+
     }
 
     public void JoinRoom(RoomInfo info)
     {
         PhotonNetwork.JoinRoom(info.Name);
         MenuManager.Instance.OpenMenu("loading");
+
     }
     public override void OnLeftRoom()
     {
         MenuManager.Instance.OpenMenu("title");
+        UnityEngine.Cursor.visible = true;
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
