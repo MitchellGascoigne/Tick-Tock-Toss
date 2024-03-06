@@ -38,6 +38,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         if(scene.name == "Game") // We are in the game scene
         {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.CurrentRoom.IsOpen = false;
+                PhotonNetwork.CurrentRoom.IsVisible = false;
+            }
+
             PhotonNetwork.Instantiate(Path.Combine("PlayerManager"), Vector3.zero, Quaternion.identity);
         }
     }
