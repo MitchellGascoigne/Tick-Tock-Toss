@@ -49614,6 +49614,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Force Field Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2713401185703836523, guid: acc83adc04ddb274f8718320541f10e2,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2960224688415880698, guid: 8042e986b675e8b4498ddfbfd8bfe18b,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
