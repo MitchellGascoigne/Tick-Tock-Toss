@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7027788761506252612}
   - component: {fileID: 8582807615924585066}
   m_Layer: 6
-  m_Name: Explosive Pickup
+  m_Name: Pickup Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
