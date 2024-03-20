@@ -12,6 +12,11 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+
+        for (int i = 0; i < menus.Length; i++)
+        {
+            CloseMenu(menus[i]);
+        }
     }
 
     public void OpenMenu(string menuName)
