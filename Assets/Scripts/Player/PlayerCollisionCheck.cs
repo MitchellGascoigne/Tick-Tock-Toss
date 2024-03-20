@@ -30,5 +30,7 @@ public class PlayerCollisionCheck : MonoBehaviour
         {
             transform.position = lastPosition;
         }
+
+        lastPosition = transform.position;
     }
 }
