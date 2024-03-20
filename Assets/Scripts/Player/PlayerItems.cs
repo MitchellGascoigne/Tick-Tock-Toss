@@ -8,13 +8,18 @@ public class PlayerItems : MonoBehaviour
 {
     public static event Action<Item> OnLocalItemSwitched;
 
-    PhotonView photonView;
+    [SerializeField] PhotonView photonView;
     [SerializeField] Item[] items;
-    [SerializeField] bool inputEnabled;
+    [SerializeField] bool manualSwitchEnabled;
 
 
     int itemIndex;
     int previousItemIndex = -1;
+
+    void Awake ()
+    {
+        photonView = gameObject.GetComponent<PhotonView>();
+    }
 
     void Start ()
     {
@@ -28,14 +33,13 @@ public class PlayerItems : MonoBehaviour
 
     void TakeInput ()
     {
-        if (!inputEnabled)
-            return;
         if (!photonView.IsMine)
             return;
 
         for (int i = 0; i < items.Length; i++)
         {
-
+            if (!manualSwitchEnabled)
+                break;
             if (Input.GetKeyDown((i + 1).ToString()))
             {
                 EquipItem(i);
@@ -55,7 +59,7 @@ public class PlayerItems : MonoBehaviour
         {
             if (items[i] == item)
             {
-                EquipItem(item);
+                EquipItem(i);
                 return;
             }
         }

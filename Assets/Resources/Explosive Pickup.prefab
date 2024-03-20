@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5537cc008e4f04e4f99a98ae0b0b3f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetItem: {fileID: 11400000, guid: bf8387f0a42d8c943b5e4eff33823d1f, type: 2}
+  targetItem: {fileID: 11400000, guid: ebd06d61b87b846498be2ce9871bf7cc, type: 2}
   refillAllItems: 0
   ammoAmount: 1
   dieOnPickup: 1

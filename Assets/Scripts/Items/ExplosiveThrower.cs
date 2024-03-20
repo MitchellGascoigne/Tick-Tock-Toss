@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class ExplosiveThrower : Item, IAmmo
 {
-    public float throwforce = 10f;
-    public GameObject grenadePrefab;
-    [SerializeField] int ammo;
-    [SerializeField] int maxAmmo;
+    ExplosiveThrowerInfo explosiveThrowerInfo;
+    int ammo;
+
+    protected override void Initialise ()
+    {
+        base.Initialise();
+
+        explosiveThrowerInfo = itemInfo as ExplosiveThrowerInfo;
+    }
 
     public override void Use ()
     {
@@ -23,9 +28,10 @@ public class ExplosiveThrower : Item, IAmmo
         if (ammo <= 0)
             return;
 
-        GameObject grenade = Instantiate(grenadePrefab, itemGameObject.transform.position, transform.rotation);
+        GameObject grenade = Instantiate(explosiveThrowerInfo.explosivePrefab, itemGameObject.transform.position, transform.rotation);
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * throwforce, ForceMode.VelocityChange);
+
+        rb.AddForce(transform.forward * explosiveThrowerInfo.throwForce, ForceMode.VelocityChange);
 
         ammo--;
     }
@@ -39,9 +45,9 @@ public class ExplosiveThrower : Item, IAmmo
             ammo = 0;
         }
         // This is so that the ammo value clamping is not done if maxAmmo is less than -1, in case infinite max ammo is wanted.
-        if (maxAmmo > -1 && ammo > maxAmmo)
+        if (explosiveThrowerInfo.maxAmmo > -1 && ammo > explosiveThrowerInfo.maxAmmo)
         {
-            ammo = maxAmmo;
+            ammo = explosiveThrowerInfo.maxAmmo;
         }
     }
 
