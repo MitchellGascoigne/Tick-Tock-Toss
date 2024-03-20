@@ -10,13 +10,9 @@ public class PlayerController : MonoBehaviourPun
     public static event Action<GameObject, Player> OnDeath;
     [SerializeField] GameObject cameraHolder;  // Reference to the camera holder GameObject.
     [SerializeField] float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;  // Player movement and camera control parameters.
-    [SerializeField] Item[] items;
-
-    int itemIndex;
-    int previousItemIndex = -1;
     
     // microman: Just a tip for future, don't leave comments like this. If something is confusing, explain it-
-    // -but generally, variable names are be self-explanatory. That's why they have names.
+    // -but generally, variable names are to be self-explanatory. That's why they have names.
     
     public Animator playerAnimator;  // Animator for player animations.
     float verticalLookRotation;  // Vertical camera rotation value.
@@ -34,18 +30,14 @@ public class PlayerController : MonoBehaviourPun
         OnSpawn?.Invoke(gameObject, PV.Owner);
     }
 
-    void Start()
+    void Start ()
     {
         if (PV.IsMine)
-        {
-            EquipItem(0); // Assign ra
-        }
-        else
-        {
-            // If this GameObject doesn't belong to the local player, destroy the camera and Rigidbody.
-            Destroy(GetComponentInChildren<Camera>().gameObject);
-            Destroy(rb);
-        }
+            return;
+
+        // If this GameObject doesn't belong to the local player, destroy the camera and Rigidbody.
+        Destroy(GetComponentInChildren<Camera>().gameObject);
+        Destroy(rb);
     }
 
     void Update()
@@ -56,21 +48,6 @@ public class PlayerController : MonoBehaviourPun
         Look();  // Handle camera look/rotation.
         Move();  // Handle player movement.
         Jump();  // Handle player jumping.
-
-        for (int i = 0; i < items.Length; i++)
-        {
-
-            if (Input.GetKeyDown((i + 1).ToString()))
-            {
-                EquipItem(i);
-                break;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            items[itemIndex].Use();
-        }
     }
 
     void Look()
@@ -109,23 +86,6 @@ public class PlayerController : MonoBehaviourPun
         }
     }
 
-    void EquipItem(int _index)
-    {
-
-        if (_index == previousItemIndex)
-            return;
-
-        itemIndex = _index;
-        items[itemIndex].itemGameObject.SetActive(true);
-
-        if(previousItemIndex != -1)
-        {
-            items[previousItemIndex].itemGameObject.SetActive(false);
-        }
-
-        previousItemIndex = itemIndex;
-    }
-
     public void SetGroundedState(bool _grounded)
     {
         grounded = _grounded;  // Set the grounded state based on collision detection.
@@ -158,10 +118,5 @@ public class PlayerController : MonoBehaviourPun
     void RPC_Die ()
     {
         OnDeath?.Invoke(gameObject, PV.Owner);
-    }
-
-    public Item[] GetItems ()
-    {
-        return items;
     }
 }

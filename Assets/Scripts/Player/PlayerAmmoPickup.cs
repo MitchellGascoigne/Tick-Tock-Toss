@@ -6,7 +6,7 @@ using Photon.Pun;
 public class PlayerAmmoPickup : MonoBehaviour
 {
     [SerializeField] PhotonView referenceView;
-    [SerializeField] PlayerController playerController;
+    [SerializeField] PlayerItems playerItems;
 
     void Awake ()
     {
@@ -35,7 +35,7 @@ public class PlayerAmmoPickup : MonoBehaviour
 
         int ammoAmount = ammoPickup.Pickup(out bool refillAllItems, out ItemInfo targetItem);
 
-        foreach (Item item in playerController.GetItems())
+        foreach (Item item in playerItems.GetItems())
         {
             // If refilling all items, then don't bother with the item == targetItem check. Just try to refill this item's ammo, then continue to the next item.
             if (refillAllItems)
@@ -51,12 +51,17 @@ public class PlayerAmmoPickup : MonoBehaviour
         }
     }
 
-    void RefillItem (Item item, int ammoAmount)
+    void RefillItem (Item item, int ammoAmount, bool autoSelectItem = true)
     {
         IAmmo ammoInterface = item.GetComponent<IAmmo>();
         if (ammoInterface == null)
             return;
 
         ammoInterface.ChangeReserveAmmo(ammoAmount);
+
+        if (autoSelectItem)
+        {
+            playerItems.EquipItem(item);
+        }
     }
 }
