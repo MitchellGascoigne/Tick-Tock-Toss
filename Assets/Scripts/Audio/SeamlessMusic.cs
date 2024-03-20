@@ -10,7 +10,6 @@ public class SeamlessMusic : MonoBehaviour
     // When loading a scene, set the AudioSource's time.
     void Start ()
     {
-        Debug.Log(audioTimestamp);
         target.time = audioTimestamp;
     }
 
@@ -18,6 +17,5 @@ public class SeamlessMusic : MonoBehaviour
     void OnDisable ()
     {
         audioTimestamp = target.time;
-        Debug.Log(target.time + "d");
     }
 }

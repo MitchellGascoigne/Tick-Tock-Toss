@@ -13,12 +13,14 @@ public class SpawnManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        Instance = this;
 
         spawnPoints = FindObjectsOfType<SpawnPoint>();
     }
 
     public Transform GetSpawnPoint ()
     {
+        Debug.Log(spawnPoints.Length);
         return spawnPoints[Random.Range(0, spawnPoints.Length)].transform;
     }
 }
