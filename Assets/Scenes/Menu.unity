@@ -6186,6 +6186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2077931294}
+  - component: {fileID: 2077931295}
   - component: {fileID: 2077931293}
   m_Layer: 0
   m_Name: Background Audio
@@ -6305,6 +6306,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2077931295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077931292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe5b712402447e44b5c970b7d2bb7ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2077931293}
 --- !u!4 &2084878050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2747623665094847332, guid: 105c3979e996d3e4e9b893d689f8696c,
