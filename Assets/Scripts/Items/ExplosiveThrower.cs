@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ExplosiveThrower : Item, IAmmo
 {
+    public event Action<int> OnAmmoChanged;
+
     ExplosiveThrowerInfo explosiveThrowerInfo;
     int ammo;
 
@@ -33,7 +35,7 @@ public class ExplosiveThrower : Item, IAmmo
 
         rb.AddForce(transform.forward * explosiveThrowerInfo.throwForce, ForceMode.VelocityChange);
 
-        ammo--;
+        ChangeCurrentAmmo(-1);
     }
 
     public void ChangeCurrentAmmo (int ammoAmount)
@@ -49,6 +51,8 @@ public class ExplosiveThrower : Item, IAmmo
         {
             ammo = explosiveThrowerInfo.maxAmmo;
         }
+
+        OnAmmoChanged?.Invoke(ammo);
     }
 
     public int GetCurrentAmmo ()
