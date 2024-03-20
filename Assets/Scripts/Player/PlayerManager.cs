@@ -121,15 +121,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     public Transform SpawnPosition()
     {
-        if (spawnPositionObjects.Length == 0)
-        {
-            Debug.LogError("No spawn positions available.");
-            return null;
-        }
-
-        //int randomIndex = = Random.Range(0, spawnPositionObjects.Length);  FIX THIS 
-        //return spawnPositionObjects[randomIndex].transform;
-        return spawnPositionObjects[0].transform;
+        return SpawnManager.Instance.GetSpawnPoint();
     }
 
     bool IsSpawnCooldownOver ()
