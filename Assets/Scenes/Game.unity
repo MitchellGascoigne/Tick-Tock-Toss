@@ -6902,6 +6902,23 @@ PrefabInstance:
       propertyPath: m_text
       value: Leave
       objectReference: {fileID: 0}
+    - target: {fileID: 3344732146999357739, guid: af3ec5ab6ac27c44b9a12573c1e52aae,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 562b7a4320422cb48b082405694529ca,
+        type: 2}
+    - target: {fileID: 3344732146999357739, guid: af3ec5ab6ac27c44b9a12573c1e52aae,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7032540119983521380, guid: 562b7a4320422cb48b082405694529ca,
+        type: 2}
+    - target: {fileID: 3344732146999357739, guid: af3ec5ab6ac27c44b9a12573c1e52aae,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4876742368167502324, guid: af3ec5ab6ac27c44b9a12573c1e52aae,
         type: 3}
       propertyPath: m_Pivot.x
