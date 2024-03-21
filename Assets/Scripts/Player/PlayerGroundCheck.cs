@@ -30,27 +30,4 @@ public class PlayerGroundCheck : MonoBehaviour
             return;
         playerController.SetGroundedState(true);
     }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject == playerController.gameObject)
-            return;
-        playerController.SetGroundedState(true);
-    }
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject == playerController.gameObject)
-            return;
-        playerController.SetGroundedState(false);
-    }
-    void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject == playerController.gameObject)
-            return;
-        playerController.SetGroundedState(true);
-    }
-
 }
-
-// multiple collider for ground tiles 
-// check collider size make sure its the bottom of ground check collider
