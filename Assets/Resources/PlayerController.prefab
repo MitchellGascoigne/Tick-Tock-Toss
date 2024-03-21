@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1c2eaded2569840b06e7bf02ddb942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photonView: {fileID: 0}
   ignoreLayers:
     serializedVersion: 2
     m_Bits: 132
