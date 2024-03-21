@@ -82,6 +82,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     void OnSpawn (GameObject playerObject, Player player)
     {
+        if (this != LocalPlayerManager) // Only execute this code for the LocalPlayerManager, otherwise Actions will trigger twice.
+            return;
+
         OnPlayerSpawn?.Invoke(player, playerObject, playerObject.transform.position); // Whether or not this is the local player, send the event that a player has spawned.
 
         if (player != PV.Owner)
@@ -140,9 +143,12 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     void OnDeath (GameObject playerObject, Player player)
     {
-        OnPlayerDeath?.Invoke(player, playerObject.transform.position); // Whether or not this is the local player, send the event that a player has died;
+        if (this != LocalPlayerManager) // Only execute this code for the LocalPlayerManager, otherwise Actions will trigger twice.
+            return;
 
-        if (player != PV.Owner)
+        OnPlayerDeath?.Invoke(player, playerObject.transform.position); // Whether or not this is the local player, send the event that a player has died.
+
+        if (player != PhotonNetwork.LocalPlayer)
             return;
 
         OnLocalPlayerDeath?.Invoke(playerObject.transform.position);

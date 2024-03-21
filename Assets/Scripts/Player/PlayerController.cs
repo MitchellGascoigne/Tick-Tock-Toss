@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviourPun
         rb = GetComponent<Rigidbody>();   // Get the player's Rigidbody component.
         PV = GetComponent<PhotonView>();  // Get the PhotonView component for network synchronization.
 
-        OnSpawn?.Invoke(gameObject, PV.Owner);
+        OnSpawn?.Invoke(gameObject, PV.Controller);
     }
 
     void Start ()
@@ -117,6 +117,6 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     void RPC_Die ()
     {
-        OnDeath?.Invoke(gameObject, PV.Owner);
+        OnDeath?.Invoke(gameObject, PV.Controller);
     }
 }
