@@ -12,9 +12,10 @@ public class PlayerItems : MonoBehaviour
     [SerializeField] Item[] items;
     [SerializeField] bool manualSwitchEnabled;
 
-
     int itemIndex;
-    int previousItemIndex = -1;
+    int previousItemIndex = -2;
+
+    IAmmo currentItemAmmo;
 
     void Awake ()
     {
@@ -23,7 +24,7 @@ public class PlayerItems : MonoBehaviour
 
     void Start ()
     {
-        EquipItem(0);
+        EquipItem(-1);
     }
 
     void Update ()
@@ -34,6 +35,8 @@ public class PlayerItems : MonoBehaviour
     void TakeInput ()
     {
         if (!photonView.IsMine)
+            return;
+        if (itemIndex <= -1)
             return;
 
         for (int i = 0; i < items.Length; i++)
@@ -50,6 +53,11 @@ public class PlayerItems : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             items[itemIndex].Use();
+        }
+
+        if (currentItemAmmo != null && currentItemAmmo.GetCurrentAmmo() <= 0)
+        {
+            EquipItem(-1);
         }
     }
 
@@ -73,16 +81,31 @@ public class PlayerItems : MonoBehaviour
             return;
 
         itemIndex = _index;
-        items[itemIndex].itemGameObject.SetActive(true);
+        if (itemIndex > -1)
+        {
+            CurrentItem().itemGameObject.SetActive(true);
+            currentItemAmmo = CurrentItem().GetComponent<IAmmo>();
+        } else
+        {
+            currentItemAmmo = null;
+        }
 
-        if (previousItemIndex != -1)
+        if (previousItemIndex > -1)
         {
             items[previousItemIndex].itemGameObject.SetActive(false);
         }
 
-        OnLocalItemSwitched?.Invoke(items[itemIndex]);
+        OnLocalItemSwitched?.Invoke(CurrentItem());
 
         previousItemIndex = itemIndex;
+    }
+
+    Item CurrentItem ()
+    {
+        if (itemIndex > -1)
+            return items[itemIndex];
+
+        return null;
     }
 
     public Item[] GetItems ()

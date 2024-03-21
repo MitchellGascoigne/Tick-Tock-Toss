@@ -51,7 +51,7 @@ public class ItemUI : MonoBehaviour
         DeassignAmmoEvents();
 
         currentItem = item;
-        currentAmmoInterface = item.GetComponent<IAmmo>();
+        currentAmmoInterface = item?.GetComponent<IAmmo>();
 
         AssignAmmoEvents();
 
