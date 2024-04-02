@@ -52,11 +52,14 @@ public class PlayerController : MonoBehaviourPun
 
     void Look()
     {
+        // Calculate mouse delta
+        Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+
         // Rotate the player based on mouse input.
-        transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X") * mouseSensitivity);
+        transform.Rotate(Vector3.up * mouseDelta.x * mouseSensitivity);
 
         // Adjust the vertical camera rotation and clamp it.
-        verticalLookRotation += Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
+        verticalLookRotation += mouseDelta.y * mouseSensitivity;
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -10f, 10f);
 
         // Apply the vertical camera rotation to the camera holder.
@@ -69,8 +72,17 @@ public class PlayerController : MonoBehaviourPun
         // Calculate the player's movement direction based on input.
         Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
 
-        // Apply sprint or walk speed based on left shift key.
-        moveAmount = Vector3.SmoothDamp(moveAmount, moveDir * (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed), ref smoothMoveVelocity, smoothTime);
+        // Apply faster speed if the player has Timer
+        if (TimerManager.IsLocalPlayerTarget()) // Check if the local player is the current target
+        {
+            // Apply sprint speed if the player is the target
+            moveAmount = Vector3.SmoothDamp(moveAmount, moveDir * sprintSpeed, ref smoothMoveVelocity, smoothTime);
+        }
+        else
+        {
+            // Apply walk speed if the player is not the target
+            moveAmount = Vector3.SmoothDamp(moveAmount, moveDir * walkSpeed, ref smoothMoveVelocity, smoothTime);
+        }
 
         // Determine if the player is walking.
         bool isWalking = moveDir.magnitude > 0;
