@@ -131,4 +131,9 @@ public class PlayerController : MonoBehaviourPun
     {
         OnDeath?.Invoke(gameObject, PV.Controller);
     }
+
+    public void SetAnimator (Animator animator)
+    {
+        playerAnimator = animator;
+    }
 }
