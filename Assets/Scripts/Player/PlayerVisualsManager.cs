@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,9 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerVisualsManager : MonoBehaviour
 {
-    [SerializeField] PlayerVisualsList visualsList;
+    public static event Action<int> OnLocalVisualIndexChanged;
     public static PlayerVisualsList VisualsList { get; private set; }
+    [SerializeField] PlayerVisualsList visualsList;
 
     void Awake ()
     {
@@ -22,9 +24,13 @@ public class PlayerVisualsManager : MonoBehaviour
 
     public static void SetPlayerVisual (int visualIndex)
     {
+        visualIndex = Mathf.Clamp(visualIndex, 0, VisualsList.visuals.Length - 1);
+
         Hashtable hash = new Hashtable();
         hash.Add("vInd", visualIndex);
         PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+
+        OnLocalVisualIndexChanged?.Invoke(visualIndex);
     }
 
     public static GameObject GetPlayerVisual (Player player)
@@ -36,7 +42,7 @@ public class PlayerVisualsManager : MonoBehaviour
     {
         if (player.CustomProperties.ContainsKey("vInd"))
         {
-            return (int)player.CustomProperties["vInd"];
+            return Mathf.Clamp((int)player.CustomProperties["vInd"], 0, VisualsList.visuals.Length - 1);
         }
 
         // Fallback to returning 0
