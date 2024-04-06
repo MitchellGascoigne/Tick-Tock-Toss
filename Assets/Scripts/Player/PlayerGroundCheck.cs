@@ -4,23 +4,31 @@ using UnityEngine;
 
 public class PlayerGroundCheck : MonoBehaviour
 {
-    PlayerController playerController;
+    public bool Grounded { get { return GetGroundedState(); } }
+    bool grounded;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] SphereCollider checkCollider;
+    [SerializeField] LayerMask ignoreLayers;
+    bool checkedThisFixedUpdate;
 
-    void Awake()
+    void FixedUpdate ()
     {
-        playerController = GetComponentInParent<PlayerController>();
+        checkedThisFixedUpdate = false;
     }
 
-    void OnTriggerExit(Collider other)
+    bool GetGroundedState ()
     {
-        if (other.gameObject == playerController.gameObject)
-            return;
-        playerController.SetGroundedState(false);
+        if (!checkedThisFixedUpdate)
+        {
+            grounded = (Physics.OverlapSphere(checkCollider.transform.position, checkCollider.radius, ~ignoreLayers, QueryTriggerInteraction.Ignore).Length > 0) ? true : false;
+            checkedThisFixedUpdate = true;
+        }
+
+        return grounded;
     }
-    void OnTriggerStay(Collider other)
+
+    bool GetProcessedGroundedState ()
     {
-        if (other.gameObject == playerController.gameObject)
-            return;
-        playerController.SetGroundedState(true);
+        return grounded ? Mathf.Approximately(rb.velocity.y, 0) : false;
     }
 }
