@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviourPun
     public static event Action<GameObject, Player> OnSpawn;
     public static event Action<GameObject, Player> OnDeath;
     [SerializeField] GameObject cameraHolder;  // Reference to the camera holder GameObject.
+    [SerializeField] PlayerFriction friction;
     [SerializeField] float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;  // Player movement and camera control parameters.
     
     // microman: Just a tip for future, don't leave comments like this. If something is confusing, explain it-
@@ -111,6 +112,11 @@ public class PlayerController : MonoBehaviourPun
 
         // Move the Rigidbody's position based on the current player's input (moveAmount) and time step.
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+
+        if (grounded)
+        {
+            friction.Tick();
+        }
     }
 
     public PhotonView GetPhotonView ()
