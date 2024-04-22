@@ -1299,6 +1299,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 3899854134258728715, guid: 2b405e8112a67ef4883c82c939256e91,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35
+      objectReference: {fileID: 0}
     - target: {fileID: 3899854134269982123, guid: 2b405e8112a67ef4883c82c939256e91,
         type: 3}
       propertyPath: m_Name
@@ -1447,6 +1452,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: 3a45e5e0fb007724683583e72488303d,
         type: 3}
+    - target: {fileID: 6531904175453815392, guid: 2b405e8112a67ef4883c82c939256e91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8077704592730538900, guid: 2b405e8112a67ef4883c82c939256e91,
         type: 3}
       propertyPath: m_Text
