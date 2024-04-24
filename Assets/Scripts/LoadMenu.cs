@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class QuitToMainMenu : MonoBehaviour
+public class BackToMenu : MonoBehaviour
 {
-    // This method is called when the button is clicked.
-    public void LoadMainMenu()
+    [SerializeField] string menuSceneName = "Menu";
+
+    // Call this method to go back to the menu scene
+    public void GoBackToMenu()
     {
-        // Load the scene named "Menu".
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(menuSceneName);
     }
 }

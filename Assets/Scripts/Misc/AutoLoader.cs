@@ -1,23 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AutoLoader : MonoBehaviour
 {
-    public static bool initialSceneLoaded;
+    [SerializeField] string initialSceneName;
     [SerializeField] string mainSceneName;
 
-    private void Update()
+    private void Start()
     {
-        if (initialSceneLoaded)
+        // Check if the initial scene has already been loaded
+        if (!string.IsNullOrEmpty(mainSceneName) && SceneManager.GetSceneByName(mainSceneName).isLoaded)
         {
+            // The initial scene has already been loaded, so cancel the auto-load
             Debug.LogWarning("The Initial scene has already been loaded. This is not allowed. Cancelling main menu auto-load.");
+            gameObject.SetActive(false);
             return;
         }
-        initialSceneLoaded = true;
 
+        // Load the main menu scene
         SceneManager.LoadScene(mainSceneName);
-        gameObject.SetActive(false);
+    }
+
+    public void LoadInitialScene()
+    {
+        SceneManager.LoadScene(initialSceneName);
     }
 }
