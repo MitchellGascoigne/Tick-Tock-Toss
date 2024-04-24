@@ -57784,7 +57784,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1371840816}
   - component: {fileID: 1371840817}
-  - component: {fileID: 1371840818}
   m_Layer: 0
   m_Name: WinLoseUIManager
   m_TagString: Untagged
@@ -57807,6 +57806,7 @@ Transform:
   m_Children:
   - {fileID: 1282933623}
   - {fileID: 1387971176}
+  - {fileID: 1771661865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1371840817
@@ -57821,20 +57821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c87ed69616d59446931b1c5d2412a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathCanvas: {fileID: 1282933622}
+  loseCanvas: {fileID: 1282933622}
   winCanvas: {fileID: 1387971175}
---- !u!114 &1371840818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371840814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0bd6529c489a64fb20aa1f59543a95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1373991178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74225,12 +74213,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771661863}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 359, y: 266.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -152.07553, y: -58.975403, z: 14.758362}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1371840816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1774638021
 PrefabInstance:
@@ -88051,4 +88039,3 @@ SceneRoots:
   - {fileID: 251503182}
   - {fileID: 817842251}
   - {fileID: 1371840816}
-  - {fileID: 1771661865}

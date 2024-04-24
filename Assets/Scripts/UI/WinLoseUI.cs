@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WinLoseUI : MonoBehaviour
 {
-    [SerializeField] Canvas deathCanvas;
+    [SerializeField] Canvas loseCanvas;
     [SerializeField] Canvas winCanvas;
 
     void OnEnable()
@@ -13,7 +13,7 @@ public class WinLoseUI : MonoBehaviour
         PlayerManager.OnLocalPlayerDeath += OnLocalPlayerDeath;
         PlayerManager.OnLocalPlayerSpawn += OnLocalPlayerSpawn;
 
-        deathCanvas.enabled = false;
+        loseCanvas.enabled = false;
         winCanvas.enabled = false;
     }
 
@@ -31,14 +31,14 @@ public class WinLoseUI : MonoBehaviour
         }
         else
         {
-            deathCanvas.enabled = true;
+            loseCanvas.enabled = true;
             UnityEngine.Cursor.visible = true;
         }
     }
 
     void OnLocalPlayerSpawn(GameObject playerObject, Vector3 position)
     {
-        deathCanvas.enabled = false;
+        loseCanvas.enabled = false;
         winCanvas.enabled = false;
     }
 
