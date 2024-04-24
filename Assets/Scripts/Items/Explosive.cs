@@ -34,15 +34,25 @@ public class Explosive : MonoBehaviour
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
-        foreach (Collider NearbyObject in colliders)
+        foreach (Collider nearbyObject in colliders)
         {
-            Rigidbody rb = NearbyObject.GetComponent<Rigidbody>();
-            if (rb != null )
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            if (rb != null)
             {
                 rb.AddExplosionForce(force, transform.position, radius);
             }
+
+            // Check if the nearby object is a player
+            PlayerController player = nearbyObject.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                // Destroy the player object
+                Destroy(player.gameObject);
+                // You might want to add more logic here, like decrementing player lives, showing game over screen, etc.
+            }
         }
 
-        //Destroy(gameObject); we do not need to destroy anymore as this will be called from the inventory class
+        // Destroy the explosive object
+        Destroy(gameObject);
     }
 }
