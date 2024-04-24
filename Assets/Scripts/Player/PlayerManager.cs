@@ -10,8 +10,10 @@ using Unity.Collections;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
 {
+
     public struct Data
     {
+
         public int PlayerID;            // Unique identifier for the player
         public bool IsAlive;            // Indicates whether the player is alive
         public Vector3 SpawnPosition;   // The position where the player should spawn

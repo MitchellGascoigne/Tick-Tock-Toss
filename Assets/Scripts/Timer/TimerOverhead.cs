@@ -18,7 +18,7 @@ public class TimerOverhead : MonoBehaviourPun
     // This is how this script begins "listening" to changes to the timer and target.
     void OnEnable ()
     {
-        // Kind of crude; set visualsEnabled to true so that DisableVisuals will run, even though visualsEnabled starts off as false.
+        // set visualsEnabled to true so that DisableVisuals will run, even though visualsEnabled starts off as false.
         visualsEnabled = true;
         DisableVisuals();
 
