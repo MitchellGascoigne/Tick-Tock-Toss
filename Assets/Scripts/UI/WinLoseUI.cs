@@ -28,11 +28,12 @@ public class WinLoseUI : MonoBehaviour
         if (IsLastPlayerStanding())
         {
             winCanvas.enabled = true;
+            Cursor.visible = true; 
         }
         else
         {
             loseCanvas.enabled = true;
-            UnityEngine.Cursor.visible = true;
+            Cursor.visible = true; 
         }
     }
 
@@ -40,6 +41,7 @@ public class WinLoseUI : MonoBehaviour
     {
         loseCanvas.enabled = false;
         winCanvas.enabled = false;
+        Cursor.visible = false; 
     }
 
     bool IsLastPlayerStanding()

@@ -42,14 +42,16 @@ public class Explosive : MonoBehaviour
                 rb.AddExplosionForce(force, transform.position, radius);
             }
 
-            // Check if the nearby object is a player
-            PlayerController player = nearbyObject.GetComponent<PlayerController>();
-            if (player != null)
-            {
-                // Destroy the player object
-                Destroy(player.gameObject);
-                // You might want to add more logic here, like decrementing player lives, showing game over screen, etc.
-            }
+            // Player Damage mucking with the photon view - fix!!
+
+            //// Check if the nearby object is a player
+            //PlayerController player = nearbyObject.GetComponent<PlayerController>();
+            //if (player != null)
+            //{
+            //    // Destroy the player object
+            //    Destroy(player.gameObject);
+            //    // You might want to add more logic here, like decrementing player lives, showing game over screen, etc.
+            //}
         }
 
         // Destroy the explosive object

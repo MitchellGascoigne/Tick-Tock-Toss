@@ -1380,6 +1380,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: 3a45e5e0fb007724683583e72488303d,
         type: 3}
+    - target: {fileID: 4216953108632245842, guid: 2b405e8112a67ef4883c82c939256e91,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1447421479}
+    - target: {fileID: 4216953108632245842, guid: 2b405e8112a67ef4883c82c939256e91,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGameButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4216953108632245842, guid: 2b405e8112a67ef4883c82c939256e91,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuitGame, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4216953108632245844, guid: 2b405e8112a67ef4883c82c939256e91,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -5004,6 +5019,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1225384423}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1447421478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1447421480}
+  - component: {fileID: 1447421479}
+  m_Layer: 0
+  m_Name: ApplicationQuit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1447421479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447421478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e46c006568bacd49b143a0fc37c3569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1447421480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447421478}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 537, y: 266.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1544147681
 GameObject:
   m_ObjectHideFlags: 0
@@ -6918,3 +6977,4 @@ SceneRoots:
   - {fileID: 8089562}
   - {fileID: 2077931294}
   - {fileID: 1202211678}
+  - {fileID: 1447421480}
