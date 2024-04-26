@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     }
 
     public const float spawnCooldown = 5f;
+    public const float leaveDelay = 3f;
     public static event Action<GameObject, Vector3> OnLocalPlayerSpawn;
     public static event Action<Player, GameObject, Vector3> OnPlayerSpawn;
     public static event Action<Vector3> OnLocalPlayerDeath; // Vector3 = death position
@@ -106,7 +107,10 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         if (!PV.IsMine)
             return;
         if (respawnLocked)
+        {
+            Invoke(nameof(LeaveRoom), leaveDelay);
             return;
+        }
         if (currentPlayer)
             return;
         if (!IsSpawnCooldownOver())
@@ -159,4 +163,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     }
 
     #endregion
+
+    void LeaveRoom ()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
 }
