@@ -5,7 +5,7 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
-    // public GameOverScreen GameOverScreen; // SHOULD I CALL THIS HERE
+    
 
     [SerializeField] Menu[] menus;
 
