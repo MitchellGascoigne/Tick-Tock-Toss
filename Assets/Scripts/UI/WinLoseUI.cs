@@ -41,7 +41,7 @@ public class WinLoseUI : MonoBehaviour
     {
         loseCanvas.enabled = false;
         winCanvas.enabled = false;
-        Cursor.visible = false; 
+        Cursor.visible = true; 
     }
 
     bool IsLastPlayerStanding()
