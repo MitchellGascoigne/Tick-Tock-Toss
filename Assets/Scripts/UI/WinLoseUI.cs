@@ -27,8 +27,8 @@ public class WinLoseUI : MonoBehaviour
     {
         if (IsLastPlayerStanding())
         {
+            Invoke("ShowWinScreen", PlayerManager.leaveDelay + 1);
             winCanvas.enabled = true;
-            Cursor.visible = true; 
         }
         else
         {
