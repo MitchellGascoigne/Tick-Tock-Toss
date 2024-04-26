@@ -42,7 +42,7 @@ public class Explosive : MonoBehaviour
                 rb.AddExplosionForce(force, transform.position, radius);
             }
 
-            // Player Damage mucking with the photon view - fix!!
+            // Player Damage mucking with the photon view for other players - fix!!
 
             //// Check if the nearby object is a player
             //PlayerController player = nearbyObject.GetComponent<PlayerController>();

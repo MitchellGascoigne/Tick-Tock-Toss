@@ -49,6 +49,7 @@ MonoBehaviour:
   - RPC_Detonate
   - RPC_Die
   - Move
+  - DestroyPickup
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
